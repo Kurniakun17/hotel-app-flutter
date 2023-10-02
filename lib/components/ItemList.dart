@@ -81,83 +81,86 @@ class ItemList extends StatelessWidget {
               width: 12,
             ),
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+              child: Container(
+                padding: EdgeInsets.only(top: 8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                data.title,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                data.location,
+                                style: const TextStyle(
+                                  color: Color(0xff8E8B93),
+                                ),
+                              ),
+                              Text(
+                                'Apartment',
+                                style: TextStyle(
+                                  color: Color(0xff8E8B93),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Row(
                           children: [
+                            Icon(
+                              Icons.bed,
+                              color: Colors.white,
+                              size: 16,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
                             Text(
-                              data.title,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
+                              data.bedroom.toString(),
+                              style: TextStyle(
                                 color: Colors.white,
                               ),
                             ),
-                            Text(
-                              data.location,
-                              style: const TextStyle(
-                                color: Color(0xff8E8B93),
-                              ),
-                            ),
-                            Text(
-                              'Apartment',
-                              style: TextStyle(
-                                color: Color(0xff8E8B93),
-                              ),
-                            )
                           ],
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        text: '\$${data.price}',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Colors.white,
                         ),
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.bed,
-                            color: Colors.white,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            data.bedroom.toString(),
-                            style: TextStyle(
-                              color: Colors.white,
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '/night',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
                             ),
                           ),
                         ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      text: '\$${data.price}',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
-                        color: Colors.white,
                       ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: '/night',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             )
           ],

@@ -35,16 +35,44 @@ class _DetailedHotelState extends State<DetailedHotel> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              widget.HotelData.title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 20,
-                                  color: Colors.white),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  widget.HotelData.title,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 20,
+                                      color: Colors.white),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      size: 18,
+                                      color: Colors.amber,
+                                    ),
+                                    SizedBox(
+                                      width: 4,
+                                    ),
+                                    Text(
+                                      widget.HotelData.rating.toString(),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 12,
                             ),
                             Text(
                               widget.HotelData.description,
-                              style: TextStyle(color: Colors.white70),
+                              style: const TextStyle(color: Colors.white70),
                             )
                           ],
                         ),
@@ -57,11 +85,13 @@ class _DetailedHotelState extends State<DetailedHotel> {
           ),
           Positioned(
             bottom: 0,
+            left: 0,
+            right: 0,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 24),
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(width: 1, color: Colors.grey),
+                  top: BorderSide(width: 0.2, color: Colors.grey),
                 ),
               ),
               child: Row(
@@ -72,7 +102,7 @@ class _DetailedHotelState extends State<DetailedHotel> {
                       text: '\$${widget.HotelData.price}',
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w700,
-                        fontSize: 18,
+                        fontSize: 24,
                         color: Colors.white,
                       ),
                       children: <TextSpan>[
@@ -84,6 +114,24 @@ class _DetailedHotelState extends State<DetailedHotel> {
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.white,
+                      ),
+                      child: const Text(
+                        'Checkout',
+                        style: TextStyle(
+                          color: Color(0xff121212),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                     ),
                   )
                 ],
