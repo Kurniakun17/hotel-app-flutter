@@ -70,7 +70,7 @@ List<Hotel> dummyData = [
     location: 'Paris, France',
     price: 600,
     description:
-        'Experience the charm of a historic mansion in the heart of Paris.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis ex viverra, accumsan tortor at, consectetur erat. Morbi a cursus massa, at porta dui. Mauris sit amet nunc mattis mauris auctor eleifend quis quis nisi. Ut congue ligula diam, vitae malesuada nibh scelerisque in. In lectus ex, sollicitudin nec arcu quis, rhoncus commodo erat. Curabitur ante nibh, varius non semper a, euismod nec dolor. Maecenas eget turpis sem. In lectus felis, viverra sed lobortis nec, laoreet vitae neque. Phasellus posuere est pellentesque orci placerat, et tincidunt neque malesuada. Morbi at purus magna. Aenean ut dolor sit amet sapien volutpat varius. Sed turpis enim, mollis a massa ut, gravida finibus ligula. Vivamus rhoncus diam a mi dignissim, eu imperdiet mi mattis. Nam quis mi at neque gravida euismod non et lorem. \n\nPraesent a sapien eget velit placerat tempor sed ac erat. Morbi eget sollicitudin enim. Integer tincidunt placerat turpis, a volutpat enim dictum non. Sed molestie ligula eget nulla pharetra convallis. Quisque mi leo, bibendum convallis orci pretium, tristique tincidunt nunc. Donec a ligula ut ante commodo ultricies. Aliquam iaculis arcu et erat convallis, eu tempor justo euismod. Donec urna felis, pharetra nec ex non, aliquet euismod nisi.',
     rating: 4.7,
     bedroom: 3,
     type: 'villa',

@@ -4,6 +4,7 @@ import 'package:hotel_app/screens/FilteredHotel.dart';
 
 import '../components/ItemList.dart';
 import '../models/hotel.dart';
+import 'DetailedHotel.dart';
 
 class HomePage extends StatefulWidget {
   List<Hotel> HotelData;
@@ -926,118 +927,132 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget carouselItem({required Hotel data, required double screenWidth}) {
-    return Container(
-      width: screenWidth < 600 ? (screenWidth * 0.7) : (screenWidth * 0.5),
-      margin: const EdgeInsets.only(right: 24),
-      child: IntrinsicHeight(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: Image.network(
-                      data.url,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  right: 12,
-                  top: 12,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 4,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.star,
-                            size: 13,
-                            color: Colors.amber,
-                          ),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            data.rating.toString(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13,
-                              color: Colors.black54,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return DetailedHotel(
+                HotelData: data,
+              );
+            },
+          ),
+        );
+      },
+      child: Container(
+        width: screenWidth < 600 ? (screenWidth * 0.7) : (screenWidth * 0.5),
+        margin: const EdgeInsets.only(right: 24),
+        child: IntrinsicHeight(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        data.title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: AspectRatio(
+                      aspectRatio: 16 / 9,
+                      child: Image.network(
+                        data.url,
+                        fit: BoxFit.cover,
                       ),
-                      Text(
-                        data.location,
-                        style: const TextStyle(
-                          color: Color(0xff8E8B93),
-                        ),
-                      ),
-                      Text(
-                        data.type,
-                        style: TextStyle(color: Color(0xff8E8B93)),
-                      ),
-                    ],
+                    ),
                   ),
-                  RichText(
-                    text: TextSpan(
-                      text: '\$${data.price}',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
+                  Positioned(
+                    right: 12,
+                    top: 12,
+                    child: Container(
+                      decoration: BoxDecoration(
                         color: Colors.white,
+                        borderRadius: BorderRadius.circular(24),
                       ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: '/night',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                          ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 4,
                         ),
-                      ],
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.star,
+                              size: 13,
+                              color: Colors.amber,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              data.rating.toString(),
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13,
+                                color: Colors.black54,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   )
                 ],
               ),
-            )
-          ],
+              const SizedBox(
+                height: 12,
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data.title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          data.location,
+                          style: const TextStyle(
+                            color: Color(0xff8E8B93),
+                          ),
+                        ),
+                        Text(
+                          data.type,
+                          style: TextStyle(color: Color(0xff8E8B93)),
+                        ),
+                      ],
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        text: '\$${data.price}',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '/night',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
